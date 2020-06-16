@@ -1,4 +1,5 @@
 import wx
+import sys, os
 
 class MyFrame(wx.Frame):    
     def __init__(self):
@@ -20,8 +21,8 @@ class MyFrame(wx.Frame):
 
         f = open("D:\\Translation EXE\\source_list.txt", "r")
         f = f.read()
-        self.Source_list = str(f).splitlines()
-        self.combo = wx.ComboBox(self.panel,choices = self.Source_list,pos=(450, 10),size=(250, 25))
+        Source_list = str(f).splitlines()
+        self.combo = wx.ComboBox(self.panel,choices = Source_list,pos=(450, 10),size=(250, 25))
         font1 = wx.Font(11, wx.DECORATIVE, wx.ITALIC, wx.NORMAL)
         self.combo.SetFont(font1)
 
@@ -52,19 +53,34 @@ class MyFrame(wx.Frame):
             print(f'{str(Source_Name)} This Source Name Updated On Dropdown')
             self.Source_btn.SetForegroundColour('Black')
             self.Source_btn.SetBackgroundColour('Green')
+            wx.MessageBox(' -_- Source Added Succcessfully  -_- ', 'Gui Translation',
+                          wx.OK | wx.ICON_INFORMATION)
+            self.Source_btn.SetForegroundColour('')
+            self.Source_btn.SetBackgroundColour('')
         else:
             self.Source_btn.SetForegroundColour('White')
             self.Source_btn.SetBackgroundColour('Red')
             print('Null value Not Accepted Please Add Source Name & Server on TextBox')
+            wx.MessageBox(' -_- Null value Not Accepted Please Add Source Name & Server on TextBox  -_- ', 'Gui Translation',
+                          wx.OK | wx.ICON_ERROR)
+            self.Source_btn.SetForegroundColour('')
+            self.Source_btn.SetBackgroundColour('')
         
     def GO_btn(self,event):
         Drop_Value = self.combo.GetValue()
-        print(f'Selected Dropdown Value : {Drop_Value}')
+        if str(Drop_Value) != '':
+            print(f'Selected Dropdown Value : {Drop_Value}')
+            
+        else:
+            wx.MessageBox(' -_- Plaese Select Dropdown Value  -_- ', 'Gui Translation',
+                          wx.OK | wx.ICON_ERROR)
+
     def exit(self,event):
         dlg = wx.MessageDialog(None, "Kya Aap Ko yaha Se Prasthan (EXIT) karna Hai !!!!", 'Gui Translation', wx.YES_NO | wx.ICON_WARNING)
         result = dlg.ShowModal()
         if result == wx.ID_YES:
             self.Destroy()
+            sys.exit()
         else:
             pass
 
