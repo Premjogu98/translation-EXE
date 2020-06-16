@@ -9,7 +9,7 @@ import string
 
 app = wx.App()
 
-browser = webdriver.Chrome(executable_path=str("D:\\Translation EXE\\chromedriver.exe"))
+browser = webdriver.Chrome(executable_path=str("E:\\Translation EXE\\chromedriver.exe"))
 browser.maximize_window()
 browser.get(
     """https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh?hl=en" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh%3Fhl%3Den&amp;ved=2ahUKEwivq8rjlcHmAhVtxzgGHZ-JBMgQFjAAegQIAhAB""")
@@ -17,10 +17,10 @@ wx.MessageBox(' -_-  Add Extension and Then Click On OK BUTTON -_- ', '100 Serve
 time.sleep(5)
 browser.get('https://translate.google.com/')
 
-Server_id = open("D:\\Translation EXE\\Special Translation EXE\\server.txt", "r")
+Server_id = open("E:\\Translation EXE\\Special Translation EXE\\server.txt", "r")
 Server_id = Server_id.read()
 
-query = open("D:\\Translation EXE\\Special Translation EXE\\query.txt", "r")
+query = open("E:\\Translation EXE\\Special Translation EXE\\query.txt", "r")
 query = query.read()
 
 
