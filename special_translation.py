@@ -339,11 +339,13 @@ def tarnslation():
                         Tender_count_for_Refresh = 0
                         clear = lambda: os.system('cls')  # Clear command Prompt
                         clear()
+                        print(f'Translation Completed : {count}  / {len(rows)}\n')
                         time.sleep(2)
                         browser.delete_all_cookies()
                         time.sleep(2)
 
-                #tarnslation()
+                #tarnslation() for continue
+                wx.MessageBox(' -_- (Process Done) -_- ','Special EXE Google Translation ',wx.OK | wx.ICON_INFORMATION)
                 time.sleep(2)
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
