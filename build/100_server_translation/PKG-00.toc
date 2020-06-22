@@ -56,11 +56,18 @@
    'EXTENSION'),
   ('_ctypes', 'c:\\program files\\python37\\DLLs\\_ctypes.pyd', 'EXTENSION'),
   ('_queue', 'c:\\program files\\python37\\DLLs\\_queue.pyd', 'EXTENSION'),
+  ('libcrypto-1_1.dll',
+   'c:\\program files\\python37\\DLLs\\libcrypto-1_1.dll',
+   'BINARY'),
   ('libssl-1_1.dll',
    'c:\\program files\\python37\\DLLs\\libssl-1_1.dll',
    'BINARY'),
-  ('libcrypto-1_1.dll',
-   'c:\\program files\\python37\\DLLs\\libcrypto-1_1.dll',
+  ('wxbase30u_vc140_x64.dll',
+   'c:\\program '
+   'files\\python37\\lib\\site-packages\\wx\\wxbase30u_vc140_x64.dll',
+   'BINARY'),
+  ('MSVCP140.dll',
+   'c:\\program files\\python37\\lib\\site-packages\\wx\\MSVCP140.dll',
    'BINARY'),
   ('wxbase30u_net_vc140_x64.dll',
    'c:\\program '
@@ -70,13 +77,6 @@
    'c:\\program '
    'files\\python37\\lib\\site-packages\\wx\\wxmsw30u_core_vc140_x64.dll',
    'BINARY'),
-  ('wxbase30u_vc140_x64.dll',
-   'c:\\program '
-   'files\\python37\\lib\\site-packages\\wx\\wxbase30u_vc140_x64.dll',
-   'BINARY'),
-  ('MSVCP140.dll',
-   'c:\\program files\\python37\\lib\\site-packages\\wx\\MSVCP140.dll',
-   'BINARY'),
   ('pywintypes37.dll',
    'c:\\program '
    'files\\python37\\lib\\site-packages\\pywin32_system32\\pywintypes37.dll',
@@ -84,29 +84,29 @@
   ('base_library.zip',
    'D:\\PycharmProjects\\100_server_translation\\build\\100_server_translation\\base_library.zip',
    'DATA'),
-  ('selenium\\webdriver\\firefox\\webdriver_prefs.json',
+  ('selenium\\webdriver\\firefox\\webdriver.xpi',
    'c:\\program '
-   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver_prefs.json',
-   'DATA'),
-  ('selenium\\webdriver\\firefox\\x86\\x_ignore_nofocus.so',
-   'c:\\program '
-   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\firefox\\x86\\x_ignore_nofocus.so',
+   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver.xpi',
    'DATA'),
   ('selenium\\webdriver\\remote\\isDisplayed.js',
    'c:\\program '
    'files\\python37\\lib\\site-packages\\selenium\\webdriver\\remote\\isDisplayed.js',
    'DATA'),
-  ('selenium\\webdriver\\remote\\getAttribute.js',
+  ('selenium\\webdriver\\firefox\\webdriver_prefs.json',
    'c:\\program '
-   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\remote\\getAttribute.js',
-   'DATA'),
-  ('selenium\\webdriver\\firefox\\webdriver.xpi',
-   'c:\\program '
-   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver.xpi',
+   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\firefox\\webdriver_prefs.json',
    'DATA'),
   ('selenium\\webdriver\\firefox\\amd64\\x_ignore_nofocus.so',
    'c:\\program '
    'files\\python37\\lib\\site-packages\\selenium\\webdriver\\firefox\\amd64\\x_ignore_nofocus.so',
+   'DATA'),
+  ('selenium\\webdriver\\remote\\getAttribute.js',
+   'c:\\program '
+   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\remote\\getAttribute.js',
+   'DATA'),
+  ('selenium\\webdriver\\firefox\\x86\\x_ignore_nofocus.so',
+   'c:\\program '
+   'files\\python37\\lib\\site-packages\\selenium\\webdriver\\firefox\\x86\\x_ignore_nofocus.so',
    'DATA'),
   ('100_server_translation.exe.manifest',
    'D:\\PycharmProjects\\100_server_translation\\build\\100_server_translation\\100_server_translation.exe.manifest',
