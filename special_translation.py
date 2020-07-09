@@ -112,8 +112,7 @@ def tarnslation():
         rows = cur.fetchall()
 
         if len(rows) == 0:
-            wx.MessageBox(' -_- No Tender Available For Translation -_- ', 'Special EXE Google Translation ',
-                          wx.OK | wx.ICON_INFORMATION)
+            wx.MessageBox(' -_- No Tender Available For Translation -_- ', 'Special EXE Google Translation ',wx.OK | wx.ICON_INFORMATION)
             browser.close()
             sys.exit()
 
@@ -149,6 +148,8 @@ def tarnslation():
                     is_available = 1
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        notice_no = re.sub('\s+', ' ', notice_no)
+                        notice_no = notice_no.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(notice_no))
                         is_available = 0
@@ -175,6 +176,8 @@ def tarnslation():
                 if purchaser != '':
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        purchaser = re.sub('\s+', ' ', purchaser)
+                        purchaser = purchaser.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(purchaser))
                         time.sleep(5)
@@ -209,6 +212,8 @@ def tarnslation():
                 if address !='':
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        address = re.sub('\s+', ' ', address)
+                        address = address.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(address))
                         time.sleep(4)
@@ -240,6 +245,8 @@ def tarnslation():
                 if title != "":
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        title = re.sub('\s+', ' ', title)
+                        title = title.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(title))
                         time.sleep(5)
@@ -272,6 +279,8 @@ def tarnslation():
                 if description != "":
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        description = re.sub('\s+', ' ', description)
+                        description = description.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         if len(description) >= 1200:
                             description = description[:1200] + '...'
@@ -310,10 +319,18 @@ def tarnslation():
                 en_description = en_description.replace("'", "''").replace("< ", "<").replace(" >", ">").replace("</ ", "</")
 
                 if len(en_title) > 250:
-                    en_title = en_title[:247] + '...'
+                    en_title = en_title[:246]
+                    suffix = "'"
+                    if suffix and en_title.endswith(suffix):
+                        en_title = en_title[:-len(suffix)]
+                    en_title = en_title + '...'
 
                 if len(en_address) > 500:
-                    en_address = en_address[:497] + '...'
+                    en_address = en_address[:500]
+                    suffix = "'"
+                    if suffix and en_address.endswith(suffix):
+                        en_address = en_address[:-len(suffix)]
+                    en_address = en_address + '...'
 
                 if en_notice_no_done == True and en_purchaser_done == True and en_address_done == True and en_title_done == True and en_description_done == True:
                     a = False

@@ -9,7 +9,7 @@ import string
 
 app = wx.App()
 
-browser = webdriver.Chrome(executable_path=str("D:\\Translation EXE\\chromedriver.exe"))
+browser = webdriver.Chrome(executable_path=str("E:\\Translation EXE\\chromedriver.exe"))
 browser.maximize_window()
 browser.get(
     """https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh?hl=en" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh%3Fhl%3Den&amp;ved=2ahUKEwivq8rjlcHmAhVtxzgGHZ-JBMgQFjAAegQIAhAB""")
@@ -98,10 +98,13 @@ def language_detect():
 
 def tarnslation():
     try:
-        f = open("D:\\Translation EXE\\source_list_UK_RU.txt", "r")
-        source_list = f.read()
-        source_list = source_list.splitlines()
-        sources = str(source_list)
+        f = open("E:\\Translation EXE\\source_list.txt", "r")
+        f_source_list = f.read()
+        f_source_list = f_source_list.splitlines()
+        sources_list = []
+        for i in f_source_list:
+            sources_list.append(i.strip())
+        sources = str(sources_list)
         Source_name = sources.replace('[', '').replace(']', '')
 
         trasns = connection()
@@ -148,6 +151,8 @@ def tarnslation():
                     is_available = 1
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        notice_no = re.sub('\s+', ' ', notice_no)
+                        notice_no = notice_no.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(notice_no))
                         is_available = 0
@@ -155,7 +160,7 @@ def tarnslation():
                     if is_available == 1:
                         wx.MessageBox(
                             'Something Went Wrong Please Refresh Google Translation Page Then Click On -_- OK -_- ',
-                            '100 Server EXE Google Translation ', wx.OK | wx.ICON_WARNING)
+                            '100 Google Translation ', wx.OK | wx.ICON_WARNING)
                     else:
                         time.sleep(5)
                         for en_notice_no in browser.find_elements_by_xpath(
@@ -174,6 +179,8 @@ def tarnslation():
                 if purchaser != '':
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        purchaser = re.sub('\s+', ' ', purchaser)
+                        purchaser = purchaser.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(purchaser))
                         time.sleep(5)
@@ -183,7 +190,7 @@ def tarnslation():
                     if is_available == 1:
                         wx.MessageBox(
                             'Something Went Wrong Please Refresh Google Translation Page Then Click On -_- OK -_- ',
-                            '100 Server EXE Google Translation ', wx.OK | wx.ICON_WARNING)
+                            '100 Google Translation ', wx.OK | wx.ICON_WARNING)
                     else:
                         time.sleep(1)
                         if If_other_Than_English == True:
@@ -208,6 +215,8 @@ def tarnslation():
                 if address !='':
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        address = re.sub('\s+', ' ', address)
+                        address = address.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(address))
                         time.sleep(4)
@@ -217,7 +226,7 @@ def tarnslation():
                     if is_available == 1:
                         wx.MessageBox(
                             'Something Went Wrong Please Refresh Google Translation Page Then Click On -_- OK -_- ',
-                            '100 Server EXE Google Translation ', wx.OK | wx.ICON_WARNING)
+                            '100 Google Translation ', wx.OK | wx.ICON_WARNING)
                     else:
                         time.sleep(1)
                         if If_other_Than_English == True:
@@ -239,6 +248,8 @@ def tarnslation():
                 if title != "":
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        title = re.sub('\s+', ' ', title)
+                        title = title.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         i.send_keys(str(title))
                         time.sleep(5)
@@ -248,7 +259,7 @@ def tarnslation():
                     if is_available == 1:
                         wx.MessageBox(
                             'Something Went Wrong Please Refresh Google Translation Page Then Click On -_- OK -_- ',
-                            '100 Server EXE Google Translation ', wx.OK | wx.ICON_WARNING)
+                            '100 Google Translation ', wx.OK | wx.ICON_WARNING)
                     else:
                         time.sleep(1)
                         if If_other_Than_English == True:
@@ -271,6 +282,8 @@ def tarnslation():
                 if description != "":
                     for i in browser.find_elements_by_xpath('//*[@id="source"]'):
                         i.clear()
+                        description = re.sub('\s+', ' ', description)
+                        description = description.replace('<br>','<br>\n').replace('<BR>','<br>\n').replace('<Br>','<br>\n')
                         check_translated_textarea()
                         if len(description) >= 1200:
                             description = description[:1200] + '...'
@@ -282,7 +295,7 @@ def tarnslation():
                     if is_available == 1:
                         wx.MessageBox(
                             'Something Went Wrong Please Refresh Google Translation Page Then Click On -_- OK -_- ',
-                            '100 Server EXE Google Translation ', wx.OK | wx.ICON_WARNING)
+                            '100 Google Translation ', wx.OK | wx.ICON_WARNING)
                     else:
                         time.sleep(1)
                         if If_other_Than_English == True:
@@ -309,10 +322,18 @@ def tarnslation():
                 en_description = en_description.replace("'", "''").replace("< ", "<").replace(" >", ">").replace("</ ", "</")
 
                 if len(en_title) > 250:
-                    en_title = en_title[:247] + '...'
+                    en_title = en_title[:246]
+                    suffix = "'"
+                    if suffix and en_title.endswith(suffix):
+                        en_title = en_title[:-len(suffix)]
+                    en_title = en_title + '...'
 
                 if len(en_address) > 500:
-                    en_address = en_address[:497] + '...'
+                    en_address = en_address[:500]
+                    suffix = "'"
+                    if suffix and en_address.endswith(suffix):
+                        en_address = en_address[:-len(suffix)]
+                    en_address = en_address + '...'
 
                 if en_notice_no_done == True and en_purchaser_done == True and en_address_done == True and en_title_done == True and en_description_done == True:
                     a = False
